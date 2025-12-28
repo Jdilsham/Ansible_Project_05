@@ -1,1 +1,29 @@
 ---
+- name: Update apt cache
+  apt:
+    update_cache: yes
+    cache_valid_time: 3600
+
+- name: Install common packages
+  apt:
+    name:
+      - git
+      - curl
+      - vim
+      - wget
+      - unzip
+    state: present
+
+- name: Set timezone Asia/Colombo
+  timezone:
+    name: Asia/Colombo
+
+- name: Ensure UFW is installed
+  ufw:
+    rule: allow
+    name: OpenSSH
+
+- name: Enable UFW firewall
+  ufw:
+    state: enabled
+    policy: deny
