@@ -5,8 +5,14 @@
 #   roles:
 #     - common
 
-- name: Set up Nginx web server
-  hosts: web
+# - name: Set up Nginx web server
+#   hosts: web
+#   become: true
+#   roles:
+#     - nginx
+
+- name: Install and configure Docker
+  hosts: app
   become: true
   roles:
-    - nginx
+    - docker
