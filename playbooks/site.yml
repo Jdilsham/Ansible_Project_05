@@ -11,8 +11,14 @@
 #   roles:
 #     - nginx
 
-- name: Install and configure Docker
-  hosts: app
-  become: true
-  roles:
-    - docker
+# - name: Install and configure Docker
+#   hosts: app
+#   become: true
+#   roles:
+#     - docker
+
+  - name: Deploy application container
+    hosts: app
+    become: true
+    roles:
+      - app

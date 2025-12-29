@@ -1,0 +1,15 @@
+---
+
+- name: Pull application Image
+  ansible.builtin.docker_image:
+    name: nginxdemos/hello
+    source: pull
+
+- name: Run application Container
+  ansible.builtin.docker_container:
+    name: hello_app
+    image: nginxdemos/hello
+    state: started
+    restart_policy: always
+    ports:
+      - "8080:80"
