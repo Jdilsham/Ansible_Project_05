@@ -1,2 +1,3 @@
 *.inventory.ini
 .vscode/
+.vault_pass

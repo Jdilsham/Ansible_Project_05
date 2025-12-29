@@ -13,3 +13,4 @@
     restart_policy: always
     ports:
       - "8080:80"
+    env: "{{ app_env }}"
